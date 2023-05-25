@@ -40,9 +40,10 @@ export default {
 
             const domainArray = this.domainList.split(/\s+/).filter(domain => domain.trim() !== '');
 
+            const uniqueDomains = [...new Set(domainArray)];
 
             try {
-                const response = await axios.post('/domains/check', { domains: domainArray });
+                const response = await axios.post('/domains/check', { domains: uniqueDomains });
                 this.domains = response.data;
             } catch (error) {
                 console.error(error);
