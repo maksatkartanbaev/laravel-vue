@@ -38,7 +38,7 @@ export default {
     methods: {
         async checkDomains() {
 
-            const domainArray = this.domainList.split('\n').filter(domain => domain.trim() !== '');
+            const domainArray = this.domainList.split(/\s+/).filter(domain => domain.trim() !== '');
 
 
             try {
